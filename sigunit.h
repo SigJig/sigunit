@@ -80,8 +80,8 @@ typedef int (*su_test_case)(void);
             num_tests++;                                                       \
         }                                                                      \
         SU_PRINTF(                                                             \
-            "SUMMARY: Ran %i tests, where %i of them failed\n", num_tests,     \
-            num_failed                                                         \
+            "<%s> SUMMARY: Ran %i tests, where %i of them failed\n", __FILE__, \
+            num_tests, num_failed                                              \
         );                                                                     \
         return num_failed != 0;                                                \
     } while (0)
