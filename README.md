@@ -38,5 +38,4 @@ main(void)
     su_run_all_tests(tests);
 }
 
-
 ```
