@@ -4,7 +4,7 @@
 static int
 test_addition(void)
 {
-    su_assert_eq(5, 3, "5 == 3");
+    su_assert(5 == 3);
 }
 
 static int (*tests[])(void) = {test_addition};

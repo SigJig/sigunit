@@ -53,20 +53,15 @@ typedef int (*su_test_case)(void);
         return 1;                                                              \
     } while (0)
 
-#define __su_assert_helper(check, cond, ...)                                   \
+#define __su_assert_helper(check, cond)                                        \
     do {                                                                       \
         if (cond) {                                                            \
             return 0;                                                          \
         }                                                                      \
-        __su_assertion_fail(check, __VA_ARGS__);                               \
+        __su_assertion_fail(check, #cond);                                     \
     } while (0)
 
-#define su_assert_eq(x, y, msg) __su_assert_helper("su_assert_eq", x == y, msg)
-
-#define su_assert_neq(x, y, msg)                                               \
-    __su_assert_helper("su_assert_neq", x != y, msg)
-
-#define su_assert(cond, msg) __su_assert_helper("su_assert", cond, msg)
+#define su_assert(cond) __su_assert_helper("su_assert", cond)
 
 #define su_run_test(test, result)                                              \
     do {                                                                       \
