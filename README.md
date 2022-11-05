@@ -27,7 +27,7 @@ test_eq(void)
 static int
 test_neq(void)
 {
-    su_assert(5 == 3);
+    su_assert(5 != 3);
 }
 
 static int (*tests[])(void) = {test_eq, test_neq};
