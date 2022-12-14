@@ -21,13 +21,13 @@ The library is very simple to use, as can be seen below:
 static int
 test_eq(void)
 {
-    su_assert(3 == 3);
+    su_assert(3 == 3, "3 == 3");
 }
 
 static int
 test_neq(void)
 {
-    su_assert(5 != 3);
+    su_assert(5 != 3, "5 != 3");
 }
 
 static int (*tests[])(void) = {test_eq, test_neq};

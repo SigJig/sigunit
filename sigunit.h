@@ -74,14 +74,12 @@ typedef int (*su_test_case)(void);
         int num_tests = 0, num_failed = 0;                                     \
         for (size_t i = 0; i < sizeof(tests) / sizeof(*tests); i++) {          \
             su_test_case test = tests[i];                                      \
-            if (test()) {                                                      \
-                num_failed++;                                                  \
-            }                                                                  \
+            num_failed += test();                                              \
             num_tests++;                                                       \
         }                                                                      \
         SU_PRINTF(                                                             \
-            "<%s> SUMMARY: Ran %i tests, where %i of them failed\n", __FILE__, \
-            num_tests, num_failed                                              \
+            "<%s: %i> SUMMARY: Ran %i tests, where %i of them failed\n",       \
+            __FILE__, __LINE__, num_tests, num_failed                          \
         );                                                                     \
         return num_failed != 0;                                                \
     } while (0)
